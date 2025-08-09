@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: _site
+website:
+  title: "Simulation"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Notebooks
+        menu:
+          - notebooks/00_overview.ipynb
+          - notebooks/10_markov.ipynb
+          - notebooks/20_hmm.ipynb
+format:
+  html:
+    code-tools: true
+    toc: true

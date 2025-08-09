@@ -1,0 +1,66 @@
+# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+
+# Virtual environments (uv, venv, conda)
+.venv/
+env/
+venv/
+ENV/
+.ipynb_checkpoints/
+.python-version
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.egg
+
+# Logs / debug
+*.log
+*.pot
+*.mo
+*.sqlite3
+
+# Test / coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+
+# Jupyter & notebook checkpoints
+.ipynb_checkpoints/
+.notebook_cache/
+
+# Data files (ignore big or generated data, keep small sample data if needed)
+data/*.csv
+data/*.tsv
+data/*.parquet
+data/*.feather
+!data/sample*
+
+# System / editor files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Quarto / Docs build output
+docs/_site/
+docs/.quarto/
+site/
+
+# DVC
+*.dvc
+.dvc/
