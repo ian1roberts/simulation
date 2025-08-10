@@ -13,11 +13,12 @@ jobs:
         run: |
           python -m pip install -U pip
           pip install -e .[dev] || pip install -e .
-          pip install nbmake pytest-cov ruff black
+          pip install nbmake pytest-cov ruff black pytest-xdist
       - name: Lint
         run: |
           ruff check .
           black --check .
       - name: Run tests
         run: pytest -q --nbmake notebooks --maxfail=1 -n auto --cov=simulation
+
 
