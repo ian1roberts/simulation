@@ -64,3 +64,5 @@ site/
 # DVC
 *.dvc
 .dvc/
+
+simulation.code-workspace
