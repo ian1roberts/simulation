@@ -1,11 +1,22 @@
 repos:
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.7.1
+    rev: 0.8.1
     hooks:
       - id: nbstripout
         stages: [pre-commit]
         files: \.ipynb$
         always_run: false
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.9
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
 
   - repo: https://github.com/mwouts/jupytext
     rev: v1.17.2
@@ -15,11 +26,3 @@ repos:
         files: \.ipynb$
         stages: [pre-commit]
         always_run: false
-
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
-    hooks: [ { id: ruff }, { id: ruff-format } ]
-
-  - repo: https://github.com/psf/black
-    rev: 24.8.0
-    hooks: [ { id: black } ]
