@@ -46,6 +46,8 @@ data/*.tsv
 data/*.parquet
 data/*.feather
 !data/sample*
+data/*.json
+data/*.npz
 
 # System / editor files
 .DS_Store
@@ -66,3 +68,6 @@ site/
 .dvc/
 
 simulation.code-workspace
+
+# Random things
+dl.py
