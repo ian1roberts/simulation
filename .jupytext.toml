@@ -1,0 +1,4 @@
+# Notebooks are canonical; pair each ipynb to a percent-format Python script
+formats = "ipynb,py:percent"
+notebook_metadata_filter = "-all"
+cell_metadata_filter = "-all"

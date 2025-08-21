@@ -1,28 +1,38 @@
 repos:
+  # 1) Strip outputs from notebooks first, so the paired .py mirrors a clean notebook
   - repo: https://github.com/kynan/nbstripout
     rev: 0.8.1
     hooks:
       - id: nbstripout
-        stages: [pre-commit]
         files: \.ipynb$
-        always_run: false
+        stages: [pre-commit]
 
+  # 2) Generate/refresh the .py FROM the .ipynb (one-way). IMPORTANT: no --sync, no --update
+  - repo: https://github.com/mwouts/jupytext
+    rev: v1.17.2
+    hooks:
+      - id: jupytext
+        name: jupytext (ipynb -> py:percent)
+        files: \.ipynb$
+        stages: [pre-commit]
+        args:
+          - --to=py:percent
+          # Optional: format the generated text in-flight to reduce downstream diffs
+          - --pipe
+          - black
+
+  # 3) Lint/format ONLY the generated .py files
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.12.9
     hooks:
       - id: ruff
+        files: \.py$
+        args: ["--fix"]
       - id: ruff-format
+        files: \.py$
 
   - repo: https://github.com/psf/black
     rev: 25.1.0
     hooks:
       - id: black
-
-  - repo: https://github.com/mwouts/jupytext
-    rev: v1.17.2
-    hooks:
-      - id: jupytext
-        args: ["--sync"]
-        files: \.ipynb$
-        stages: [pre-commit]
-        always_run: false
+        files: \.py$
